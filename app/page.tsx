@@ -88,9 +88,10 @@ export default function Home() {
           <Box p={6} rounded="md" w={80} bg="white" color="black">
             <Formik
               initialValues={initialValues}
-              onSubmit={(values) => {
+              onSubmit={(values, { resetForm }) => {
                 // alert(JSON.stringify(values, null, 2))
                 handleSubmit(values["name"], values["category"])
+                resetForm()
               }}
               validationSchema={validationSchema}
             >
