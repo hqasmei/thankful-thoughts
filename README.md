@@ -1,5 +1,8 @@
 # [ThankfulThoughts.io](https://thankfulthoughts.io/)
 
+
+[![Thankful Thoughts](./public/screenshot.png)](https://www.thankfulthoughts.io)
+
 ## How it works
 
 
