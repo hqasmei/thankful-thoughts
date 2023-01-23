@@ -13,7 +13,6 @@ import {
   Spinner,
   Heading,
   Text,
-  Select,
   useColorModeValue,
 } from "@chakra-ui/react"
 
@@ -131,7 +130,11 @@ export default function Home() {
                 </form>
               )}
             </Formik>
-            {gratitudeLoading && <Spinner animation="border" />}
+            {gratitudeLoading && (
+              <Box py={4}>
+                <Spinner />
+              </Box>
+            )}
             {gratitudeLoadingError && "Something went wrong. Please try again."}
           </Box>
           {gratitude && (
