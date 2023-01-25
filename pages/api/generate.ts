@@ -1,38 +1,37 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { Configuration, OpenAIApi } from "openai"
+import type { NextRequest } from "next/server"
+import { OpenAIStream, OpenAIStreamPayload } from "../../utils/OpenAIStream"
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-})
-
-const openai = new OpenAIApi(configuration)
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const prompt = req.query.prompt
-  const category = req.query.category
-  if (!prompt) {
-    return res.status(400).json({ error: "Prompt missing" })
-  }
-
-  if (prompt.length > 100) {
-    return res.status(400).json({ error: "Prompt too long" })
-  }
-
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: `Create a sentence of gratitude based on the following category and topic name. In the format, I am grateful for topic because...\n
-    Category: ${category}\n
-    Topic: ${prompt}\n`,
-    max_tokens: 500,
-    temperature: 1,
-    presence_penalty: 0,
-    frequency_penalty: 0,
-  })
-
-  const quote = completion.data.choices[0].text
-
-  res.status(200).json({ quote })
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error("Missing env var from OpenAI")
 }
+
+export const config = {
+  runtime: "edge",
+}
+
+const handler = async (req: NextRequest): Promise<Response> => {
+  const { prompt } = (await req.json()) as {
+    prompt?: string
+  }
+
+  if (!prompt) {
+    return new Response("No prompt in the request", { status: 400 })
+  }
+
+  const payload: OpenAIStreamPayload = {
+    model: "text-davinci-003",
+    prompt,
+    temperature: 0.7,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    max_tokens: 200,
+    stream: true,
+    n: 1,
+  }
+
+  const stream = await OpenAIStream(payload)
+  return new Response(stream)
+}
+
+export default handler

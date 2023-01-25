@@ -19,6 +19,7 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.4",
+    "eventsource-parser": "0.0.5",
     "formik": "^2.2.9",
     "formik-chakra-ui": "^1.6.1",
     "framer-motion": "^8.5.0",
