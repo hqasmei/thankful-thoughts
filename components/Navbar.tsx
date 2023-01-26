@@ -23,7 +23,7 @@ export default function Navbar() {
             <Text
               fontWeight={650}
               lineHeight={1.2}
-              fontSize={{ base: "xl", md: "3xl" }}
+              fontSize={{ base: "lg", md: "3xl" }}
             >
               🙏 Thankful Thoughts
             </Text>

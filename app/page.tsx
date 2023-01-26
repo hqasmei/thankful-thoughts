@@ -159,7 +159,7 @@ export default function Home() {
           <Box p={{ base: 2, md: 6 }}>
             <Heading
               fontWeight={700}
-              fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+              fontSize={{ base: "xl", sm: "4xl", md: "6xl" }}
               lineHeight={"110%"}
             >
               Generate a thought of <br />
