@@ -2,7 +2,7 @@
 
 ThankfulThoughts is a web application that allows users to input a person, place, or thing, and generates a sentence of gratitude in return. It's a simple yet powerful tool to help users express gratitude and positive thoughts towards the things they are thankful for.
 
-[![Thankful Thoughts](./public/screenshot.png)](https://www.thankfulthoughts.io)
+[![Thankful Thoughts](./public/web-screenshot.png)](https://www.thankfulthoughts.io)
 
 
 ## How it works
