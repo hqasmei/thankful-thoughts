@@ -19,12 +19,3 @@ Then, run the application in the command line and it will be available at `http:
 npm install
 npm run dev
 ```
-
-## One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
- 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hqasmei/thankful-thoughts&env=OPENAI_API_KEY&project-name=thankful-thoughts&repo-name=thankful-thoughts)
-
-* Make sure to include environment variable in Vercel Environmental Veriables
-
